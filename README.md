@@ -36,6 +36,14 @@ two layouts are built: `ctrl + fn` and `fn only`. ctrl is the fast one-finger ch
 terminals own ctrl (`ctrl+c` is SIGINT), so **fn is the route that works inside termux**.
 fn has to be set to "Sym key" for that — see setup.
 
+## install
+
+grab the apk from [releases](../../releases) and `adb install` it (or open it on the
+phone), then do the four setup steps below. obtainium can track this repo if you want
+updates. every release is signed with the same key, so upgrades install in place.
+
+if you are not on a titan 2, build it yourself — the apk embeds *this* phone's key table.
+
 ## build
 
 needs `android-sdk-build-tools`, a jdk, and adb. no android platform sdk: the build pulls
