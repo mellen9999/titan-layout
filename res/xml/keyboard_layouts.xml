@@ -1,0 +1,10 @@
+<keyboard-layouts xmlns:android="http://schemas.android.com/apk/res/android">
+    <keyboard-layout
+        android:name="titan_dual"
+        android:label="titan layer (ctrl + fn)"
+        android:keyboardLayout="@raw/titan_dual" />
+    <keyboard-layout
+        android:name="titan_sym"
+        android:label="titan layer (fn only)"
+        android:keyboardLayout="@raw/titan_sym" />
+</keyboard-layouts>
