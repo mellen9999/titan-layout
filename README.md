@@ -79,12 +79,23 @@ back-tab**, for free. binding anything to shift would take that away.
 two layouts ship in the one apk:
 
 - **titan layer (ctrl + fn)** — both modifiers. ctrl is the fast one-finger chord.
-- **titan layer (fn only)** — for shells and anything else that owns ctrl (`ctrl+c` is
-  SIGINT). fn emits `KEYCODE_SYM`, which nothing claims, so it survives where ctrl does
-  not.
+- **titan layer (fn only)** — the one to use if you live in a terminal.
 
 pick either in setup step 2; both are always installed, so switching is a menu tap, not
 a rebuild.
+
+**if you use a shell, pick fn only.** the symbol keys are safe on either layout — a
+character row leaves the keycode alone, so the terminal still builds `ctrl+c` from
+`KEYCODE_C` itself. but the ten `replace` keys swap the keycode at the input reader,
+*before* any app sees it, so on the ctrl+fn layout these are gone from your shell:
+
+```
+ctrl+a  ctrl+h  ctrl+j  ctrl+k  ctrl+l  ctrl+m  ctrl+q  ctrl+r  ctrl+u  ctrl+z
+```
+
+that is start-of-line, reverse-search, kill-line, clear and suspend — and `ctrl+z` does
+not suspend anything, it sleeps the phone. fn only ships zero ctrl rows, so ctrl belongs
+entirely to the terminal and every symbol still sits on fn.
 
 ## install
 
@@ -130,7 +141,7 @@ overlay is a stock android feature and every build exposes it somewhere.
 | installed and selected, nothing changed | the layout choice was dropped — reselect it (step 2) |
 | ctrl chords work, fn does nothing | fn is not set to Sym (step 3) |
 | keys vanish or storm at random | an accessibility remapper is still enabled (step 4) |
-| ctrl chords swallowed inside a terminal | expected — the shell owns ctrl; use fn, or the fn-only layout |
+| `ctrl+r`, `ctrl+a`, `ctrl+u`… do nothing in a shell | you are on the ctrl+fn layout. switch to **fn only** — see below |
 
 `adb logcat | grep AguiKeyboardShortcut` logs every dispatched keycode, which is the
 fastest way to see what a key actually sends.
