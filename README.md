@@ -45,13 +45,22 @@ same thing, so there is nothing extra to memorise.
 
 | shift + layer | sends | vim |
 | --- | --- | --- |
-| f | line home | `^` |
-| s | line end | `$` |
+| f | home | `^` |
+| s | end | `$` |
 | u | page up | `ctrl-u` |
 | d | page down | `ctrl-d` |
 | x | forward delete | `x` |
+| i | insert | `i` |
 | y | copy | `y` |
 | p | paste | `p` |
+
+that is the full six-key navigation cluster a desktop keyboard has — insert, delete, home,
+end, page up, page down — as real keycodes, so termux turns them into the same escape
+sequences a usb keyboard would. `home` here is `MOVE_HOME`, the keyboard key; the android
+home *screen* is a different keycode and stays on layer+m.
+
+copy and paste are the exception: they reach android text fields, but termux has no
+handler for them, so they do nothing in a shell.
 
 `hjkl` and `a` are deliberately absent from that table, because they are already taken and
 they were free: a `ctrl`/`sym` row clears only its own modifier, so shift is still set when

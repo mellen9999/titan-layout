@@ -99,6 +99,8 @@ key I {
     shift+alt, capslock+alt:            none
     ctrl:                               '|'
     sym:                                '|'
+    ctrl+shift:                         replace INSERT
+    sym+shift:                          replace INSERT
 }
 
 key J {

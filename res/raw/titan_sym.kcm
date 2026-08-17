@@ -88,6 +88,7 @@ key I {
     alt:                                '_'
     shift+alt, capslock+alt:            none
     sym:                                '|'
+    sym+shift:                          replace INSERT
 }
 
 key J {
