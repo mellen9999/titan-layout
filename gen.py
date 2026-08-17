@@ -38,8 +38,8 @@ SYMBOLS = {
 # at the input reader, so these reach the system the same way a hardware key would.
 NAV = {"H": "DPAD_LEFT", "J": "DPAD_DOWN", "K": "DPAD_UP", "L": "DPAD_RIGHT",
        "Q": "ESCAPE", "A": "TAB",
-       "U": "PAGE_UP", "M": "MOVE_HOME",
-       "R": "APP_SWITCH", "Z": "SLEEP"}
+       "U": "PAGE_UP", "M": "HOME",
+       "R": "MOVE_HOME", "Z": "SLEEP"}
 
 # the navigation cluster, on two keys. every letter is spoken for above, so these live on
 # the keys the layer never claimed — the five non-letter keys that physically exist, read

@@ -30,7 +30,7 @@ runtime, because there is nothing running to break.
 | w e t y | `~ = { }` | h j k l | ← ↓ ↑ → |
 | i o p | `\| \ ;` | q | esc |
 | s d f g | `$ % ^ \`` | a | tab |
-| x c v | `& [ ]` | r | recents |
+| x c v | `& [ ]` | m | home screen |
 | b n | `< >` | z | sleep |
 
 back is unbound because it cannot be bound — see the navigation cluster below.
@@ -46,7 +46,7 @@ time, never three, because a three-key chord on a phone kept in one hand is not 
 | --- | --- |
 | u | page up |
 | space | page down |
-| m | home |
+| r | home |
 | enter | end |
 | backspace | forward delete |
 
@@ -59,14 +59,14 @@ the overlay accepts them without complaint, but android's window manager consume
 before the input reader runs — the binding silently never fires. measured on the device,
 not assumed.
 
-`u` and `m` used to open the notification shade and go to the home screen. both of those
-are one system gesture away, and neither was worth a letter once the cluster needed one.
+`u` was the notification shade and `r` was recents. the shade is one swipe away, and
+recents has its own physical key in row 1 — neither was worth a letter. **`m` stays the
+home screen**: that one is used constantly to minimise an app, and taking it hurts.
 
 they are real keycodes, so termux turns them into the same escape sequences a usb keyboard
-sends — checked against its `KeyHandler` termcap table rather than assumed. `home` here is
-`MOVE_HOME`, the keyboard key that moves a cursor to the start of a line — not
-`KEYCODE_HOME`, the home screen, which is a different keycode that no longer sits on the
-layer at all.
+sends — checked against its `KeyHandler` termcap table rather than assumed. `home` here is `MOVE_HOME`,
+the keyboard key that moves a cursor to the start of a line. `KEYCODE_HOME` is the home
+screen — a different keycode, still on `fn+m` where it belongs. same word, two keys.
 
 **fn only, deliberately never ctrl.** `ctrl+space` and `ctrl+enter` belong to applications,
 and a `replace` row would eat them at the input reader before the app could ever see them.

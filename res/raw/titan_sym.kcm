@@ -121,7 +121,7 @@ key M {
     shift, capslock:                    'M'
     alt:                                '?'
     shift+alt, capslock+alt:            none
-    sym:                                replace MOVE_HOME
+    sym:                                replace HOME
 }
 
 key N {
@@ -168,7 +168,7 @@ key R {
     shift, capslock:                    'R'
     alt:                                '3'
     shift+alt, capslock+alt:            none
-    sym:                                replace APP_SWITCH
+    sym:                                replace MOVE_HOME
 }
 
 key S {
