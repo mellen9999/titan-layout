@@ -125,6 +125,7 @@ overlay is a stock android feature and every build exposes it somewhere.
 
 | symptom | cause |
 | --- | --- |
+| you reinstalled, but the old bindings are still live | android caches the parsed map — reinstalling never reloads it. re-pick the layout in step 2 (switch to the other one and back). **this is the one that wastes hours**, because `adb install -r` reports success and nothing changes |
 | the layout is not in the picker at all | KCM provider is still "Default" (step 1) |
 | installed and selected, nothing changed | the layout choice was dropped — reselect it (step 2) |
 | ctrl chords work, fn does nothing | fn is not set to Sym (step 3) |
@@ -143,6 +144,7 @@ the aapt2 include.
 ```sh
 ./build.sh                                  # pulls what it needs, generates, signs
 adb install -r build/titan-layout.apk
+# then RE-PICK the layout on the phone — installing does not reload the parsed map
 ```
 
 on first run it pulls the phone's stock keychar map and generates a signing key beside
