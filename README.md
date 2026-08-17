@@ -37,6 +37,27 @@ back is deliberately unbound — the system's back gesture already covers it.
 
 `alt+space` is remapped to a plain space, which kills the oem symbol-picker popup.
 
+### shift tier
+
+every letter is spoken for above, so the editing keys the titan otherwise cannot send at
+all live one tier up, on **shift + the layer**. each one is the vim command that means the
+same thing, so there is nothing extra to memorise.
+
+| shift + layer | sends | vim |
+| --- | --- | --- |
+| f | line home | `^` |
+| s | line end | `$` |
+| u | page up | `ctrl-u` |
+| d | page down | `ctrl-d` |
+| x | forward delete | `x` |
+| y | copy | `y` |
+| p | paste | `p` |
+
+`hjkl` and `a` are deliberately absent from that table, because they are already taken and
+they were free: a `ctrl`/`sym` row clears only its own modifier, so shift is still set when
+the arrow is dispatched. **shift+layer+hjkl already selects by character** and
+**shift+layer+a is already back-tab**. binding anything there would take that away.
+
 two layouts ship in the one apk:
 
 - **titan layer (ctrl + fn)** — both modifiers. ctrl is the fast one-finger chord.
