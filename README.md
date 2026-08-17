@@ -4,8 +4,8 @@ a symbol layer for the unihertz titan 2's physical keyboard, shipped as data ins
 as a process.
 
 the titan's printed alt layer covers 16 of the 32 ascii symbols. the other 16 —
-`~ = { } | \ ; $ % ^ ` & [ ] < >` — plus vi arrows, escape and tab live here, on
-`ctrl+letter` and `fn+letter`.
+`~ = { } | \ ; $ % ^ ` & [ ] < >` — plus vi arrows, escape, tab and a navigation cluster
+live here, on `fn+letter`.
 
 no root, no accessibility service, no input method, nothing running in the background.
 
@@ -25,7 +25,7 @@ runtime, because there is nothing running to break.
 
 ## layout
 
-| key | ctrl / fn | key | ctrl / fn |
+| key | fn + | key | fn + |
 | --- | --- | --- | --- |
 | w e t y | `~ = { }` | h j k l | ← ↓ ↑ → |
 | i o p | `\| \ ;` | q | esc |
@@ -78,8 +78,10 @@ back-tab**, for free. binding anything to shift would take that away.
 
 two layouts ship in the one apk:
 
-- **titan layer (ctrl + fn)** — both modifiers. ctrl is the fast one-finger chord.
-- **titan layer (fn only)** — the one to use if you live in a terminal.
+- **titan layer (fn only)** — the default, and the right pick for anyone who opens a
+  shell. fn emits `KEYCODE_SYM`, which no app or terminal claims.
+- **titan layer (ctrl + fn)** — the same layer also on ctrl, which is the easier
+  one-finger reach. only worth it if you never use a terminal; see the warning below.
 
 pick either in setup step 2; both are always installed, so switching is a menu tap, not
 a rebuild.
@@ -119,7 +121,7 @@ form, and `adb shell settings get <namespace> <key>` will tell you the current v
    (`settings put global agui_kcm_provider 1`)
    the oem hides app-supplied keychar maps behind this. left at "Default", the layouts
    are not listed at all — this is the step people miss.
-2. **same screen › TitanKey › layout → titan layer (ctrl + fn)**
+2. **same screen › TitanKey › layout → titan layer (fn only)**
    the only step with no adb equivalent: the choice lives in
    `/data/system/input-manager-state.xml`, which is root-only. it survives reboots, and
    is lost only if the apk is fully uninstalled.
