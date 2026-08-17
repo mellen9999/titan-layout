@@ -39,7 +39,6 @@ key D {
     alt:                                '5'
     shift+alt, capslock+alt:            none
     sym:                                '%'
-    sym+shift:                          replace PAGE_DOWN
 }
 
 key E {
@@ -60,7 +59,6 @@ key F {
     alt:                                '6'
     shift+alt, capslock+alt:            none
     sym:                                '^'
-    sym+shift:                          replace MOVE_HOME
 }
 
 key G {
@@ -88,7 +86,6 @@ key I {
     alt:                                '_'
     shift+alt, capslock+alt:            none
     sym:                                '|'
-    sym+shift:                          replace INSERT
 }
 
 key J {
@@ -152,7 +149,6 @@ key P {
     alt:                                ':'
     shift+alt, capslock+alt:            none
     sym:                                ';'
-    sym+shift:                          replace PASTE
 }
 
 key Q {
@@ -183,7 +179,6 @@ key S {
     alt:                                '4'
     shift+alt, capslock+alt:            none
     sym:                                '$'
-    sym+shift:                          replace MOVE_END
 }
 
 key T {
@@ -202,7 +197,6 @@ key U {
     alt:                                '-'
     shift+alt, capslock+alt:            none
     sym:                                replace NOTIFICATION
-    sym+shift:                          replace PAGE_UP
 }
 
 key V {
@@ -233,7 +227,6 @@ key X {
     alt:                                '7'
     shift+alt, capslock+alt:            none
     sym:                                '&'
-    sym+shift:                          replace FORWARD_DEL
 }
 
 key Y {
@@ -243,7 +236,6 @@ key Y {
     alt:                                ')'
     shift+alt, capslock+alt:            none
     sym:                                '}'
-    sym+shift:                          replace COPY
 }
 
 key Z {
@@ -262,4 +254,27 @@ key SPACE {
     shift:                              ' '
     alt:                                ' '
     shift+alt:                          ' '
+    sym:                                replace PAGE_DOWN
+}
+
+key ENTER {
+    label:                              '\n'
+    number:                             '\n'
+    base:                               '\n'
+    shift:                              '\n'
+    alt:                                '\n'
+    shift+alt:                          '\n'
+    sym:                                replace MOVE_END
+}
+
+key BACK {
+    sym:                                replace PAGE_UP
+}
+
+key APP_SWITCH {
+    sym:                                replace MOVE_HOME
+}
+
+key DEL {
+    sym:                                replace FORWARD_DEL
 }

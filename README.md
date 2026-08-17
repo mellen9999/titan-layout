@@ -37,35 +37,36 @@ back is deliberately unbound — the system's back gesture already covers it.
 
 `alt+space` is remapped to a plain space, which kills the oem symbol-picker popup.
 
-### shift tier
+### navigation cluster
 
-every letter is spoken for above, so the editing keys the titan otherwise cannot send at
-all live one tier up, on **shift + the layer**. each one is the vim command that means the
-same thing, so there is nothing extra to memorise.
+every letter is spoken for above, so home, end and paging go on the five non-letter keys
+the layer never claimed. each one is **fn plus a single key** — two at a time, never three.
 
-| shift + layer | sends | vim |
-| --- | --- | --- |
-| f | home | `^` |
-| s | end | `$` |
-| u | page up | `ctrl-u` |
-| d | page down | `ctrl-d` |
-| x | forward delete | `x` |
-| i | insert | `i` |
-| y | copy | `y` |
-| p | paste | `p` |
+| fn + | sends |
+| --- | --- |
+| space | page down |
+| back | page up |
+| app switch | home |
+| enter | end |
+| backspace | forward delete |
 
-that is the full six-key navigation cluster a desktop keyboard has — insert, delete, home,
-end, page up, page down — as real keycodes, so termux turns them into the same escape
-sequences a usb keyboard would. `home` here is `MOVE_HOME`, the keyboard key; the android
-home *screen* is a different keycode and stays on layer+m.
+three of those keys — back, app switch and backspace — have no block in the stock
+character map at all. an overlay is merged key by key with `insert_or_assign`, so
+declaring them here adds them outright; nothing is displaced, because there was nothing to
+displace. pressed alone they are still back, recents and backspace.
 
-copy and paste are the exception: they reach android text fields, but termux has no
-handler for them, so they do nothing in a shell.
+they are real keycodes, so termux turns them into the same escape sequences a usb keyboard
+sends — checked against its `KeyHandler` termcap table rather than assumed. `home` is
+`MOVE_HOME`, the keyboard key; the android home *screen* is a different keycode and stays
+on layer+m.
 
-`hjkl` and `a` are deliberately absent from that table, because they are already taken and
-they were free: a `ctrl`/`sym` row clears only its own modifier, so shift is still set when
-the arrow is dispatched. **shift+layer+hjkl already selects by character** and
-**shift+layer+a is already back-tab**. binding anything there would take that away.
+**fn only, deliberately never ctrl.** `ctrl+space` and `ctrl+enter` belong to applications,
+and a `replace` row would eat them at the input reader before the app could ever see them.
+
+shift is untouched across the whole layer, and that is not an oversight: a `ctrl`/`sym` row
+clears only its own modifier, so shift survives into the dispatched keycode.
+**shift+layer+hjkl already selects by character** and **shift+layer+a is already
+back-tab**, for free. binding anything to shift would take that away.
 
 two layouts ship in the one apk:
 

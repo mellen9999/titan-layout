@@ -43,8 +43,6 @@ key D {
     shift+alt, capslock+alt:            none
     ctrl:                               '%'
     sym:                                '%'
-    ctrl+shift:                         replace PAGE_DOWN
-    sym+shift:                          replace PAGE_DOWN
 }
 
 key E {
@@ -67,8 +65,6 @@ key F {
     shift+alt, capslock+alt:            none
     ctrl:                               '^'
     sym:                                '^'
-    ctrl+shift:                         replace MOVE_HOME
-    sym+shift:                          replace MOVE_HOME
 }
 
 key G {
@@ -99,8 +95,6 @@ key I {
     shift+alt, capslock+alt:            none
     ctrl:                               '|'
     sym:                                '|'
-    ctrl+shift:                         replace INSERT
-    sym+shift:                          replace INSERT
 }
 
 key J {
@@ -171,8 +165,6 @@ key P {
     shift+alt, capslock+alt:            none
     ctrl:                               ';'
     sym:                                ';'
-    ctrl+shift:                         replace PASTE
-    sym+shift:                          replace PASTE
 }
 
 key Q {
@@ -206,8 +198,6 @@ key S {
     shift+alt, capslock+alt:            none
     ctrl:                               '$'
     sym:                                '$'
-    ctrl+shift:                         replace MOVE_END
-    sym+shift:                          replace MOVE_END
 }
 
 key T {
@@ -228,8 +218,6 @@ key U {
     shift+alt, capslock+alt:            none
     ctrl:                               replace NOTIFICATION
     sym:                                replace NOTIFICATION
-    ctrl+shift:                         replace PAGE_UP
-    sym+shift:                          replace PAGE_UP
 }
 
 key V {
@@ -263,8 +251,6 @@ key X {
     shift+alt, capslock+alt:            none
     ctrl:                               '&'
     sym:                                '&'
-    ctrl+shift:                         replace FORWARD_DEL
-    sym+shift:                          replace FORWARD_DEL
 }
 
 key Y {
@@ -275,8 +261,6 @@ key Y {
     shift+alt, capslock+alt:            none
     ctrl:                               '}'
     sym:                                '}'
-    ctrl+shift:                         replace COPY
-    sym+shift:                          replace COPY
 }
 
 key Z {
@@ -296,4 +280,27 @@ key SPACE {
     shift:                              ' '
     alt:                                ' '
     shift+alt:                          ' '
+    sym:                                replace PAGE_DOWN
+}
+
+key ENTER {
+    label:                              '\n'
+    number:                             '\n'
+    base:                               '\n'
+    shift:                              '\n'
+    alt:                                '\n'
+    shift+alt:                          '\n'
+    sym:                                replace MOVE_END
+}
+
+key BACK {
+    sym:                                replace PAGE_UP
+}
+
+key APP_SWITCH {
+    sym:                                replace MOVE_HOME
+}
+
+key DEL {
+    sym:                                replace FORWARD_DEL
 }
