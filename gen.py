@@ -5,7 +5,7 @@ the titan's printed alt layer covers 16 of the 32 ascii symbols; this adds the o
 on a modifier layer, plus vi arrows and escape. it is pure data — the input system reads
 it, so there is no process, no accessibility hook and nothing that can eat a keypress.
 
-three layouts ship in one apk so a parse failure in one cannot take the others down, and
+both layouts ship in one apk so a parse failure in one cannot take the other down, and
 so the modifier can be changed without a rebuild:
   titan_dual      symbols on BOTH ctrl+letter and fn+letter. the key next to shift emits
                   KEYCODE_CTRL_LEFT (113) — measured, not assumed. Fn is set to "Sym key" in
