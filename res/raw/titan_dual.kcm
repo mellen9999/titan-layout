@@ -133,8 +133,8 @@ key M {
     shift, capslock:                    'M'
     alt:                                '?'
     shift+alt, capslock+alt:            none
-    ctrl:                               replace HOME
-    sym:                                replace HOME
+    ctrl:                               replace MOVE_HOME
+    sym:                                replace MOVE_HOME
 }
 
 key N {
@@ -216,8 +216,8 @@ key U {
     shift, capslock:                    'U'
     alt:                                '-'
     shift+alt, capslock+alt:            none
-    ctrl:                               replace NOTIFICATION
-    sym:                                replace NOTIFICATION
+    ctrl:                               replace PAGE_UP
+    sym:                                replace PAGE_UP
 }
 
 key V {
@@ -291,14 +291,6 @@ key ENTER {
     alt:                                '\n'
     shift+alt:                          '\n'
     sym:                                replace MOVE_END
-}
-
-key BACK {
-    sym:                                replace PAGE_UP
-}
-
-key APP_SWITCH {
-    sym:                                replace MOVE_HOME
 }
 
 key DEL {

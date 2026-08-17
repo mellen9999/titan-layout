@@ -38,7 +38,8 @@ SYMBOLS = {
 # at the input reader, so these reach the system the same way a hardware key would.
 NAV = {"H": "DPAD_LEFT", "J": "DPAD_DOWN", "K": "DPAD_UP", "L": "DPAD_RIGHT",
        "Q": "ESCAPE", "A": "TAB",
-       "M": "HOME", "R": "APP_SWITCH", "U": "NOTIFICATION", "Z": "SLEEP"}
+       "U": "PAGE_UP", "M": "MOVE_HOME",
+       "R": "APP_SWITCH", "Z": "SLEEP"}
 
 # the navigation cluster, on two keys. every letter is spoken for above, so these live on
 # the keys the layer never claimed — the five non-letter keys that physically exist, read
@@ -52,9 +53,11 @@ NAV = {"H": "DPAD_LEFT", "J": "DPAD_DOWN", "K": "DPAD_UP", "L": "DPAD_RIGHT",
 #
 # MOVE_HOME/MOVE_END are the keyboard's home and end. KEYCODE_HOME is the home *screen*
 # and stays on layer+m — different key, same word.
+# BACK and APP_SWITCH are in TitanKey.kl and can be declared here, but android's window
+# manager consumes both before the input reader ever runs tryRemapKey — measured on the
+# device, fn+back stayed plain back. system keys are not available to an overlay, so the
+# cluster lives on letters and on the two ordinary keys that do work.
 PAD = {"SPACE": "PAGE_DOWN",      # space pages down in every pager there has ever been
-       "BACK": "PAGE_UP",         # back = backwards
-       "APP_SWITCH": "MOVE_HOME",
        "ENTER": "MOVE_END",       # rightmost key of its row, and enter ends a line
        "DEL": "FORWARD_DEL"}      # exactly what fn+delete does on a mac
 

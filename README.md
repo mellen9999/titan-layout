@@ -30,35 +30,43 @@ runtime, because there is nothing running to break.
 | w e t y | `~ = { }` | h j k l | ← ↓ ↑ → |
 | i o p | `\| \ ;` | q | esc |
 | s d f g | `$ % ^ \`` | a | tab |
-| x c v | `& [ ]` | m r u | home, recents, notifications |
+| x c v | `& [ ]` | r | recents |
 | b n | `< >` | z | sleep |
 
-back is deliberately unbound — the system's back gesture already covers it.
+back is unbound because it cannot be bound — see the navigation cluster below.
 
 `alt+space` is remapped to a plain space, which kills the oem symbol-picker popup.
 
 ### navigation cluster
 
-every letter is spoken for above, so home, end and paging go on the five non-letter keys
-the layer never claimed. each one is **fn plus a single key** — two at a time, never three.
+home, end and paging round the layer out. each one is **fn plus a single key** — two at a
+time, never three, because a three-key chord on a phone kept in one hand is not a chord.
 
 | fn + | sends |
 | --- | --- |
+| u | page up |
 | space | page down |
-| back | page up |
-| app switch | home |
+| m | home |
 | enter | end |
 | backspace | forward delete |
 
-three of those keys — back, app switch and backspace — have no block in the stock
-character map at all. an overlay is merged key by key with `insert_or_assign`, so
-declaring them here adds them outright; nothing is displaced, because there was nothing to
-displace. pressed alone they are still back, recents and backspace.
+backspace has no block in the stock character map at all. an overlay is merged key by key
+with `insert_or_assign`, so declaring it here adds it outright; pressed alone it is still
+backspace.
+
+**do not put anything on `back` or `app switch`.** both are real keys in `TitanKey.kl` and
+the overlay accepts them without complaint, but android's window manager consumes them
+before the input reader runs — the binding silently never fires. measured on the device,
+not assumed.
+
+`u` and `m` used to open the notification shade and go to the home screen. both of those
+are one system gesture away, and neither was worth a letter once the cluster needed one.
 
 they are real keycodes, so termux turns them into the same escape sequences a usb keyboard
-sends — checked against its `KeyHandler` termcap table rather than assumed. `home` is
-`MOVE_HOME`, the keyboard key; the android home *screen* is a different keycode and stays
-on layer+m.
+sends — checked against its `KeyHandler` termcap table rather than assumed. `home` here is
+`MOVE_HOME`, the keyboard key that moves a cursor to the start of a line — not
+`KEYCODE_HOME`, the home screen, which is a different keycode that no longer sits on the
+layer at all.
 
 **fn only, deliberately never ctrl.** `ctrl+space` and `ctrl+enter` belong to applications,
 and a `replace` row would eat them at the input reader before the app could ever see them.
