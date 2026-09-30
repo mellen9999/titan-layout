@@ -186,3 +186,7 @@ built and verified on a unihertz titan 2 running android 16, august 2026.
 ## license
 
 0BSD. do whatever.
+
+## see also
+
+[titan-hooks](https://github.com/mellen9999/titan-hooks) — the two red side keys: skip, delete, and a wanted list for [played](https://github.com/mellen9999/played).
